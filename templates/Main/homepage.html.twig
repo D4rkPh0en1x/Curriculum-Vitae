@@ -1,0 +1,17 @@
+{%  extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<div class="datacontainer bg-secondary">
+	<div class="card">
+            {% for row in maintext %}
+           
+                        <h2>{{ row.label }}</h2>
+                        {{ row.description|raw }}
+                        
+                                    {% endfor %}
+	</div>
+</div>
+
+{% endblock %}

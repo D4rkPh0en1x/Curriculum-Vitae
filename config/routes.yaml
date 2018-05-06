@@ -1,0 +1,101 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+login:
+    path: /{_locale}/login
+    controller: App\Controller\UserController::login
+    defaults:
+      _locale: 'en'
+    requirements:
+       _locale: 'en|fr|de'
+
+logout:
+    path: /logout
+    
+username_available:
+    path: /username/available
+    controller: App\Controller\UserController::usernameAvailable
+    methods: ['POST']
+
+homepage:
+     path: /{_locale}
+     defaults:
+        _controller: App\Controller\MainController::welcome
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'  
+        
+admin_user:
+     path: /{_locale}/administration/user
+     defaults:
+        _controller: App\Controller\AdminController::adminUser
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'            
+
+user_add:
+     path: /{_locale}/user/add
+     defaults:
+        _controller: App\Controller\UserController::registerUser
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'  
+
+main_add:
+     path: /{_locale}/main/add
+     defaults:
+        _controller: App\Controller\MainController::mainAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'            
+
+        
+certification_add:
+     path: /{_locale}/certifications/add
+     defaults:
+        _controller: App\Controller\CertificationsController::certificationAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
+        
+certifications_main:
+     path: /{_locale}/certifications/main
+     defaults:
+        _controller: App\Controller\CertificationsController::certificationsMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'   
+
+diploma_add:
+     path: /{_locale}/diploma/add
+     defaults:
+        _controller: App\Controller\DiplomaController::diplomaAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
+        
+diploma_main:
+     path: /{_locale}/diploma/main
+     defaults:
+        _controller: App\Controller\DiplomaController::diplomaMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'       
+        
+job_add:
+     path: /{_locale}/jobs/add
+     defaults:
+        _controller: App\Controller\JobsController::jobsAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
+        
+jobs_main:
+     path: /{_locale}/jobs/main
+     defaults:
+        _controller: App\Controller\JobsController::jobsMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'          
+                             

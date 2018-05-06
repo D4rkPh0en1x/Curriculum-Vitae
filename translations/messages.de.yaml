@@ -1,0 +1,17 @@
+HEADER:
+  MAIN: Welcome
+  PERSONALINFO: Personal Info
+  EDUCATIONDEGREE: Education degree
+  JOBS: Jobs
+  SELFEVALUATION: Self Evaluation
+  DIPLOMA: Diploma
+  CERTIFICATIONS: Certifications
+  ADMIN: Administration
+  LOGIN: Login
+  LOGOUT: Logout
+  TRANSLATIONEN: English
+  TRANSLATIONDE: Deutsch
+  TRANSLATIONFR: Français
+  ADMINUSER: User management
+FOOTER:
+  CONTACTME: Contact me

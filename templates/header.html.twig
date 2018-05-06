@@ -1,0 +1,162 @@
+<header>
+{% if is_granted('ROLE_ADMIN') %}
+<nav class="navbar navbar-expand-sm navbar-light bg-info bg-faded" data-toggle="sticky-onscroll">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="{{ path ('homepage') }}"><img alt="" src="/images/logo_cv.fw.png" height="75px"></a>   
+    
+        <div class="collapse navbar-collapse justify-content-center" id="nav-content">
+        	<ul class="navbar-nav nav" id="mlNav" >
+            	<li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.MAIN'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('homepage') }}">{{ 'HEADER.MAINLIST'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('main_add') }}">{{ 'HEADER.MAINADD'|trans }}</a>       
+            			</div>
+          		</li>          		
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.PERSONALINFO'|trans }}</a>
+          		</li>
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.EDUCATIONDEGREE'|trans }}</a>
+          		</li>
+          		
+          		
+                <li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.JOBS'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('jobs_main') }}">{{ 'HEADER.JOBSLIST'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('job_add') }}">{{ 'HEADER.JOBADD'|trans }}</a>
+        
+            			</div>
+          		</li> 
+          		
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.SELFEVALUATION'|trans }}</a>
+          		</li>          		       		          		
+    
+                <li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.DIPLOMA'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('diploma_main') }}">{{ 'HEADER.DIPLOMALIST'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('diploma_add') }}">{{ 'HEADER.DIPLOMAADD'|trans }}</a>
+        
+            			</div>
+          		</li>   
+
+          		
+            	<li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.CERTIFICATIONS'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('certifications_main') }}">{{ 'HEADER.CERTIFICATIONSLIST'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('certification_add') }}">{{ 'HEADER.CERTIFICATIONADD'|trans }}</a>
+        
+            			</div>
+          		</li>          		
+       		
+            	<li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.ADMIN'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('admin_user') }}">{{ 'HEADER.ADMINUSER'|trans }}</a>
+        
+            			</div>
+          		</li>
+        	</ul>
+    	</div>
+	
+	
+	    <ul class="navbar-nav nav" id="rightNav" >
+	    	<li class="nav-item">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.LOGOUT'|trans }}" class="nav-link" href="{{ path ('logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+				{% else %}
+                    <a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.LOGIN'|trans }}" class="nav-link" href="{{ path ('login') }}"><i class="fas fa-sign-in-alt"></i></a>
+                {% endif %}
+      		
+      		</li>
+      		
+	       	<li class="nav-item dropdown LanguageSelector">
+        		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button"><i class="fas fa-language"></i></a>
+        			<div class="dropdown-menu dropdown-menu-lang">
+							{% set enRouteVar = {'_locale': 'en'}|merge(routeAttr|default([])) %}
+								<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.TRANSLATIONEN'|trans }}" class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), enRouteVar) }}"><img src="/images/flags/en.png" alt="English Flag" width="30"></a>
+							{% set frRouteVar = {'_locale': 'fr'}|merge(routeAttr|default([])) %}
+								<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.TRANSLATIONFR'|trans }}" class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), frRouteVar) }}"><img src="/images/flags/fr.png" alt="French Flag" width="30"></a>
+							{% set deRouteVar = {'_locale': 'de'}|merge(routeAttr|default([])) %}
+								<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.TRANSLATIONDE'|trans }}" class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), deRouteVar) }}"><img src="/images/flags/de.png" alt="German Flag" width="30"></a>
+        			
+        			</div>
+      		</li>
+		</ul>
+</nav>
+
+{% else %}
+
+<nav class="navbar navbar-expand-sm navbar-light bg-info bg-faded" data-toggle="sticky-onscroll">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="{{ path ('homepage') }}"><img alt="" src="/images/logo_cv.fw.png" height="75px"></a>   
+    
+        <div class="collapse navbar-collapse justify-content-center" id="nav-content">
+        	<ul class="navbar-nav nav" id="mlNav" >
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.MAIN'|trans }}</a>
+          		</li>
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.PERSONALINFO'|trans }}</a>
+          		</li>
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.EDUCATIONDEGREE'|trans }}</a>
+          		</li>
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('jobs_main') }}" role="tab">{{ 'HEADER.JOBS'|trans }}</a>
+          		</li>   
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.SELFEVALUATION'|trans }}</a>
+          		</li>          		       		          		
+        		
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('diploma_main') }}" role="tab">{{ 'HEADER.DIPLOMA'|trans }}</a>
+          		</li>          		
+          		<li class="nav-item">
+            		<a class="nav-link" href="{{ path ('certifications_main') }}" role="tab">{{ 'HEADER.CERTIFICATIONS'|trans }}</a>
+          		
+          		</li>          		
+          	</ul>
+    	</div>
+	
+	
+	    <ul class="navbar-nav nav" id="rightNav" >
+	    	<li class="nav-item">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.LOGOUT'|trans }}" class="nav-link" href="{{ path ('logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+				{% else %}
+                    <a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.LOGIN'|trans }}" class="nav-link" href="{{ path ('login') }}"><i class="fas fa-sign-in-alt"></i></a>
+                {% endif %}
+      		
+      		</li>
+      		
+	       	<li class="nav-item dropdown LanguageSelector">
+        		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button"><i class="fas fa-language"></i></a>
+        			<div class="dropdown-menu dropdown-menu-lang">
+							{% set enRouteVar = {'_locale': 'en'}|merge(routeAttr|default([])) %}
+								<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.TRANSLATIONEN'|trans }}" class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), enRouteVar) }}"><img src="/images/flags/en.png" alt="English Flag" width="30"></a>
+							{% set frRouteVar = {'_locale': 'fr'}|merge(routeAttr|default([])) %}
+								<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.TRANSLATIONFR'|trans }}" class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), frRouteVar) }}"><img src="/images/flags/fr.png" alt="French Flag" width="30"></a>
+							{% set deRouteVar = {'_locale': 'de'}|merge(routeAttr|default([])) %}
+								<a data-toggle="popover" data-trigger="hover" data-content="{{ 'HEADER.TRANSLATIONDE'|trans }}" class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), deRouteVar) }}"><img src="/images/flags/de.png" alt="German Flag" width="30"></a>
+        			
+        			</div>
+      		</li>
+		</ul>
+</nav>
+{% endif %}
+
+
+
+
+</header>

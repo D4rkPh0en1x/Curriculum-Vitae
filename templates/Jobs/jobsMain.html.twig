@@ -1,0 +1,74 @@
+{%  extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+
+
+<div class="datacontainer bg-secondary">
+    {% for row in jobs %}
+    	<div class="card">
+            
+     
+ 
+           
+          <div class="row">
+            <div class="col-sm text-center">
+            	<p class="jobsul">Company :</p>
+             	{{ row.label }}
+            </div>
+            <div class="col-sm text-center">
+                {% if row.jobstart != null %}
+                	<p  class="jobsul">Job start :</p>
+                    {{ row.jobstart|date("d/m/Y") }}
+                {% endif %}
+            </div>
+            <div class="col-sm text-center">
+                {% if row.jobend != null %}
+                	<p  class="jobsul">Job end :</p>
+               		{{ row.jobend|date("d/m/Y") }}
+                {% endif %}
+            </div>
+            <div class="col-sm text-center">
+                {% if row.jobend != null %}
+                	<p  class="jobsul">Total worked time :</p>
+                    {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s) %m month(s) %d day(s)') }}
+                {% endif %}
+            </div>
+          </div>            
+          <hr/>  
+ 
+           <div class="row">
+            <div class="col-sm text-center">
+            	<p class="jobsul">Employed as :</p>
+                {{ row.employedas }}
+            </div>           
+            <div class="col-sm text-center">
+            	<p class="jobsul">Location :</p>
+                {{ row.location }}
+            </div>
+           <div class="col-sm text-center">
+            	<p class="jobsul">Country :</p>
+                {{ row.country }}
+            </div>
+
+
+          </div>  
+     <hr/>
+
+           <div class="row">
+            <div class="col-sm">
+            	<p class="jobsul text-center">Job Description :</p>
+                {{ row.description|raw }}
+            </div>
+          </div> 
+
+            
+            
+   		</div> 
+    
+    {% endfor %}
+</div>
+
+{% endblock %}
