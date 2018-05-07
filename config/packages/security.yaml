@@ -39,9 +39,10 @@ security:
         - { path: "^/[a-zA-Z]+/main/add", roles: "ROLE_ADMIN"}  
         - { path: "^/[a-zA-Z]+/certifications/add", roles: "ROLE_ADMIN"}  
         - { path: "^/[a-zA-Z]+/diploma/add", roles: "ROLE_ADMIN"}                           
-   
-
-
+        - { path: "^/[a-zA-Z]+/educationdegree/add", roles: "ROLE_ADMIN"}   
+        - { path: "^/[a-zA-Z]+/selfevaluation/add/evalcategories", roles: "ROLE_ADMIN"}  
+        - { path: "^/[a-zA-Z]+/selfevaluation/main/evalcategories", roles: "ROLE_ADMIN"}  
+        - { path: "^/[a-zA-Z]+/selfevaluation/add", roles: "ROLE_ADMIN"}  
                      
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

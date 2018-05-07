@@ -8,14 +8,41 @@
     src: url(../fonts/Comfortaa-Regular.ttf);
 }
 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  align-items: center;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 html, body {
   font-family: Comfortaa-Bold;
   font-size: 1.1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  font-size: 1.6em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.3em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
   font-size: 1.1em;
 }
+
 
 footer{
   position: sticky;
@@ -337,6 +364,11 @@ footer a {
 }
 
 .jobsul {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.evaluationul {
   text-decoration: underline;
   font-weight: bold;
 }

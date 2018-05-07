@@ -1,0 +1,40 @@
+{%  extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+
+<div class="datacontainer bg-secondary">
+    {% for row in educationdegree %}
+        <div class="card">
+          <div class="row row-eq-height bg-light">
+            <div class="col-sm text-center">
+            	<p class="jobsul">BACC</p>
+             	{{ row.label }}
+        	</div>
+            <div class="col-sm text-center">
+            	<p  class="jobsul">Grade</p>
+                {{ row.grade }}
+            </div>
+            <div class="col-sm text-center">
+            	<p  class="jobsul">Mention</p>
+            	{{ row.mention }}
+            </div>
+            <div class="col-sm text-center">
+            	<p  class="jobsul">Educational Facility</p>
+            	{{ row.educationalfacility }}
+            </div>
+		  </div>            
+		<hr/>
+          <div class="row row-eq-height bg-light">
+            <div class="col-sm">
+            	<p class="jobsul text-center">Description</p>
+             	{{ row.description|raw }}
+        	</div> 
+          </div> 
+    	</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

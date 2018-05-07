@@ -19,9 +19,18 @@
           		<li class="nav-item">
             		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.PERSONALINFO'|trans }}</a>
           		</li>
-          		<li class="nav-item">
-            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.EDUCATIONDEGREE'|trans }}</a>
-          		</li>
+
+
+
+                <li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.EDUCATIONDEGREE'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('educationdegree_main') }}">{{ 'HEADER.EDUCATIONDEGREELIST'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('educationdegree_add') }}">{{ 'HEADER.EDUCATIONDEGREEADD'|trans }}</a>
+        
+            			</div>
+          		</li> 
+
           		
           		
                 <li class="nav-item dropdown">
@@ -33,9 +42,21 @@
             			</div>
           		</li> 
           		
-          		<li class="nav-item">
-            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.SELFEVALUATION'|trans }}</a>
-          		</li>          		       		          		
+         		
+          		
+          		
+                <li class="nav-item dropdown">
+            		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.SELFEVALUATION'|trans }}</a>
+            			<div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path ('selfevaluation_main') }}">{{ 'HEADER.SELFEVALUATIONLIST'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('selfevaluation_add') }}">{{ 'HEADER.SELFEVALUATIONADD'|trans }}</a>
+                          <a class="dropdown-item" href="{{ path ('selfevaluation_main_evalcategories') }}">{{ 'HEADER.SELFEVALUATIONMAINEVALCATEGORIES'|trans }}</a>       
+                          <a class="dropdown-item" href="{{ path ('selfevaluation_add_evalcategories') }}">{{ 'HEADER.SELFEVALUATIONADDEVALCATEGORIES'|trans }}</a>       
+            			</div>
+          		</li>           		
+          		
+          		
+          		  		       		          		
     
                 <li class="nav-item dropdown">
             		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.DIPLOMA'|trans }}</a>
@@ -110,13 +131,13 @@
             		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.PERSONALINFO'|trans }}</a>
           		</li>
           		<li class="nav-item">
-            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.EDUCATIONDEGREE'|trans }}</a>
+            		<a class="nav-link" href="{{ path ('educationdegree_main') }}" role="tab">{{ 'HEADER.EDUCATIONDEGREE'|trans }}</a>
           		</li>
           		<li class="nav-item">
             		<a class="nav-link" href="{{ path ('jobs_main') }}" role="tab">{{ 'HEADER.JOBS'|trans }}</a>
           		</li>   
           		<li class="nav-item">
-            		<a class="nav-link" href="{{ path ('homepage') }}" role="tab">{{ 'HEADER.SELFEVALUATION'|trans }}</a>
+            		<a class="nav-link" href="{{ path ('selfevaluation_main') }}" role="tab">{{ 'HEADER.SELFEVALUATION'|trans }}</a>
           		</li>          		       		          		
         		
           		<li class="nav-item">

@@ -99,3 +99,66 @@ jobs_main:
      requirements:
         _locale: 'en|fr|de'          
                              
+educationdegree_add:
+     path: /{_locale}/educationdegree/add
+     defaults:
+        _controller: App\Controller\EducationDegreeController::educationDegreeAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
+        
+educationdegree_main:
+     path: /{_locale}/educationdegree/main
+     defaults:
+        _controller: App\Controller\EducationDegreeController::educationDegreeMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'          
+        
+selfevaluation_add:
+     path: /{_locale}/selfevaluation/add
+     defaults:
+        _controller: App\Controller\SelfEvaluationController::selfEvaluationAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
+        
+selfevaluation_main:
+     path: /{_locale}/selfevaluation/main
+     defaults:
+        _controller: App\Controller\SelfEvaluationController::selfEvaluationMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'          
+        
+selfevaluation_add_evalcategories:
+     path: /{_locale}/selfevaluation/add/evalcategories
+     defaults:
+        _controller: App\Controller\SelfEvaluationController::selfEvaluationAddEvalCategories
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'             
+        
+selfevaluation_main_evalcategories:
+     path: /{_locale}/selfevaluation/main/evalcategories
+     defaults:
+        _controller: App\Controller\SelfEvaluationController::selfEvaluationMainEvalCategories
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                             

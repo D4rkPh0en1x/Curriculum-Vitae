@@ -11,29 +11,39 @@
     	<div class="card">
             
      
- 
            
-          <div class="row">
+          <div class="row row-eq-height bg-light">
             <div class="col-sm text-center">
-            	<p class="jobsul">Company :</p>
+            	<p class="jobsul">Company</p>
              	{{ row.label }}
             </div>
             <div class="col-sm text-center">
                 {% if row.jobstart != null %}
-                	<p  class="jobsul">Job start :</p>
+                	<p  class="jobsul">Job start</p>
                     {{ row.jobstart|date("d/m/Y") }}
                 {% endif %}
             </div>
             <div class="col-sm text-center">
                 {% if row.jobend != null %}
-                	<p  class="jobsul">Job end :</p>
+                	<p  class="jobsul">Job end</p>
                		{{ row.jobend|date("d/m/Y") }}
                 {% endif %}
             </div>
             <div class="col-sm text-center">
                 {% if row.jobend != null %}
-                	<p  class="jobsul">Total worked time :</p>
-                    {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s) %m month(s) %d day(s)') }}
+                	<p  class="jobsul">working period</p>
+                	{% set jobyear = date(row.jobend).diff((date(row.jobstart))).format('%y') %}
+                	{% set jobmonth = date(row.jobend).diff((date(row.jobstart))).format('%m') %}                	
+                	{% set jobdays = date(row.jobend).diff((date(row.jobstart))).format('%d') %}                	
+            		{% if   jobyear > 0 %}
+                       {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s)') }}<br/>
+   					{% endif %}
+                	{% if   jobmonth > 0 %}       					
+                        {{ date(row.jobend).diff((date(row.jobstart))).format('%m month(s)') }}<br/>
+                    {% endif %}
+                	{% if   jobdays > 0 %}                    
+                        {{ date(row.jobend).diff((date(row.jobstart))).format('%d day(s)') }}
+                    {% endif %}                                     
                 {% endif %}
             </div>
           </div>            

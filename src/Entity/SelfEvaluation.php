@@ -34,10 +34,12 @@ class SelfEvaluation
     private $evaluation;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\EvalCategories", mappedBy="selfevaluation")
+     * @ORM\ManyToOne(targetEntity="App\Entity\SelfEvaluationCategories", inversedBy="selfEvaluations")
      */
-    private $evalCategories;
+    private $categorie;
 
+
+ 
     public function __construct()
     {
         $this->evalCategories = new ArrayCollection();
@@ -84,34 +86,19 @@ class SelfEvaluation
         return $this;
     }
 
-    /**
-     * @return Collection|EvalCategories[]
-     */
-    public function getEvalCategories(): Collection
+    public function getCategorie(): ?SelfEvaluationCategories
     {
-        return $this->evalCategories;
+        return $this->categorie;
     }
 
-    public function addEvalCategory(EvalCategories $evalCategory): self
+    public function setCategorie(?SelfEvaluationCategories $categorie): self
     {
-        if (!$this->evalCategories->contains($evalCategory)) {
-            $this->evalCategories[] = $evalCategory;
-            $evalCategory->setSelfevaluation($this);
-        }
+        $this->categorie = $categorie;
 
         return $this;
     }
 
-    public function removeEvalCategory(EvalCategories $evalCategory): self
-    {
-        if ($this->evalCategories->contains($evalCategory)) {
-            $this->evalCategories->removeElement($evalCategory);
-            // set the owning side to null (unless already changed)
-            if ($evalCategory->getSelfevaluation() === $this) {
-                $evalCategory->setSelfevaluation(null);
-            }
-        }
 
-        return $this;
-    }
+
+
 }
