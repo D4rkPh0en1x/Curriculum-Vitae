@@ -43,6 +43,7 @@ security:
         - { path: "^/[a-zA-Z]+/selfevaluation/add/evalcategories", roles: "ROLE_ADMIN"}  
         - { path: "^/[a-zA-Z]+/selfevaluation/main/evalcategories", roles: "ROLE_ADMIN"}  
         - { path: "^/[a-zA-Z]+/selfevaluation/add", roles: "ROLE_ADMIN"}  
+        - { path: "^/[a-zA-Z]+/personalinfo/add", roles: "ROLE_ADMIN"}  
                      
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

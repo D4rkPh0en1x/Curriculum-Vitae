@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PersonalInfoRepository")
@@ -69,7 +71,7 @@ class PersonalInfo
     private $mobilephone;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $smoker;
 
@@ -99,7 +101,8 @@ class PersonalInfo
     private $softSkills;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\AcquiredSkills", mappedBy="personalinfo")
+     * @ORM\OneToMany(targetEntity="App\Entity\AcquiredSkills", mappedBy="personalinfo", orphanRemoval=true)
+     * @Groups({"personalinfo.acquiredskills"})     
      */
     private $acquiredSkills;
 
@@ -242,12 +245,12 @@ class PersonalInfo
         return $this;
     }
 
-    public function getSmoker(): ?bool
+    public function getSmoker(): ?string
     {
         return $this->smoker;
     }
 
-    public function setSmoker(?bool $smoker): self
+    public function setSmoker(?string $smoker): self
     {
         $this->smoker = $smoker;
 

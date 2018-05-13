@@ -22,13 +22,13 @@ class SelfEvaluationForm extends AbstractType
         $builder->add('brandapplication', TextType::class)
         ->add('product', TextType::class)
         ->add('evaluation', TextType::class)
-        ->add('submit', SubmitType::class)
         ->add('categorieToAdd', EntityType::class, [
             'label' => 'FORM.SELFEVALUATION.CATEGORIETOADD',
             'class'        => SelfEvaluationCategories::class,
             'choice_label' => 'label',
             'mapped'       => false,
-        ]);
+        ])
+        ->add('submit', SubmitType::class);
     }
     
     public function configureOptions(OptionsResolver $resolver)

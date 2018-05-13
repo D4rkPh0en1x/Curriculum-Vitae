@@ -147,13 +147,23 @@ selfevaluation_main_evalcategories:
      requirements:
         _locale: 'en|fr|de'          
         
+personalinfo_add:
+     path: /{_locale}/personalinfo/add
+     defaults:
+        _controller: App\Controller\PersonalInfoController::personalInfoAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
         
+personalinfo_main:
+     path: /{_locale}/personalinfo/main
+     defaults:
+        _controller: App\Controller\PersonalInfoController::personalInfoMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'          
         
-        
-        
-        
-        
-        
+       
         
         
         

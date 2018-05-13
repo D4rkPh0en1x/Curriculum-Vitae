@@ -28,6 +28,7 @@ class AcquiredSkills
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\PersonalInfo", inversedBy="acquiredSkills")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $personalinfo;
 
@@ -71,4 +72,6 @@ class AcquiredSkills
 
         return $this;
     }
+    
+
 }

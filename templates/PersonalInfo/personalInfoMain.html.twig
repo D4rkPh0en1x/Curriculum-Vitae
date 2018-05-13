@@ -1,0 +1,87 @@
+{%  extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+
+
+<div class="datacontainer bg-secondary">
+	{% for row in personalinfo %}
+    <div class="row">
+    	<div class="col-sm-7 card">
+            Surname: {{ row.surname }}
+            <br/>Name: {{ row.name }}
+            <br/>Birthdate: {{ date (row.birthdate).format('d/m/Y') }}
+            <br/>Birthplace: {{ row.birthplace }}
+            <br/>Citizenship: {{ row.citizenship }}
+            <br/>Martial Status: {{ row.maritalstatus }}
+            <br/>Children: {{ row.children }}
+            <br/>Address: {{ row.address|raw }}
+            <br/>Salary: {{ row.salary }}
+            <br/>Mobile Phone: {{ row.mobilephone }}
+            <br/>Smoker: {{ row.smoker }}
+            <br/>Driving Licence: {{ row.drivinglicence }}
+            <br/>Mail Address: {{ row.mail }}
+   		</div>
+   		<div class="col-sm-4 card">
+   			<h2 class="text-center">Acquired Skills</h2>
+   			<table class="table table-light borderless">
+       		{% for rowSkill in row.acquiredSkills %}
+       		<tr data-toggle="modal" data-target="#{{ rowSkill.id }}">
+       			<td data-toggle="modal" data-target="#{{ rowSkill.id }}">
+       			             		
+                    	 {{ rowSkill.label }}
+               			
+       			</td>
+       		</tr>
+       		<!-- Modal -->
+            <div class="modal fade" id="{{ rowSkill.id }}" tabindex="-1" role="dialog" aria-labelledby="{{ rowSkill.label }}" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="acquiredskillmodal">{{ rowSkill.label }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {{ rowSkill.description|raw }}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            </table>
+
+        	<a href="{{ path('acquiredskill_add', {'personalinfoid': row.getId()}) }}">
+        		<button class="btn btn-success btn-block">{{ 'ACQUIREDSKILL.ADD'|trans }}</button>
+        	</a>
+   		</div>
+   		
+   	</div>
+   	<div class="row">    
+   		<div class="card col-sm-7">
+			Languages
+        </div>
+        <div class="card col-sm-4">
+			Soft Skills
+        </div>
+   	</div>
+   	   	<div class="row">    
+   		<div class="card col-sm-7">
+			Hobbies
+        </div>
+        <div class="card col-sm-4">
+			Personal Web Sites
+        </div>
+   	</div>	 	     
+    {% endfor %}
+	
+</div>
+
+{% endblock %}

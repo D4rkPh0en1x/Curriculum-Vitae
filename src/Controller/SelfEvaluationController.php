@@ -70,7 +70,7 @@ class SelfEvaluationController extends Controller
         
         $repository = $this->getDoctrine()
         ->getRepository(SelfEvaluation::class);
-        $selfevaluation = $repository->findAll();
+        $selfevaluation = $repository->findBy([], ['brandapplication' => 'ASC']);
         
         return new Response(
             $twig->render(
