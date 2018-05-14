@@ -4,159 +4,201 @@
 {% block body %}
 
 <div class="datacontainer bg-secondary">
-	<div class="card">
-   	<h2 class="evaluationul text-center">Hardware</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-bordered table-hover">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Hardware"%}
-                        <tr>
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Hardware</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Hardware"%}
+             		    <tr>
                             <td>{{ row.brandapplication }}</td>
                             <td>{{ row.product }}</td>
         					<td>{{ row.evaluation }}</td>
-    
                         </tr>
-                    {% endfor %}
-            </table>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
         </div>
-    </div>
-    
-    
-    <div class="card">
-   	<h2 class="evaluationul text-center">Software</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-bordered table-hover">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Software"%}
-                        <tr>
-                            <td>{{ row.brandapplication }}</td>
-                            <td>{{ row.product }}</td>
-        					<td>{{ row.evaluation }}</td>
-    
-                        </tr>
-                    {% endfor %}
-            </table>
-        </div>
+      </div>
     </div>
 
-    <div class="card">
-   	<h2 class="evaluationul text-center">Web Development</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-bordered table-hover">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Web Development"%}
-                        <tr>
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Software</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Software"%}
+             		    <tr>
                             <td>{{ row.brandapplication }}</td>
                             <td>{{ row.product }}</td>
         					<td>{{ row.evaluation }}</td>
-    
                         </tr>
-                    {% endfor %}
-            </table>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-    
-    
-    <div class="card">    
-   	<h2 class="evaluationul text-center">Web Software</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-bordered table-hover">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Web Software"%}
-                        <tr>
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Web Development</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Web Development"%}
+             		    <tr>
                             <td>{{ row.brandapplication }}</td>
                             <td>{{ row.product }}</td>
         					<td>{{ row.evaluation }}</td>
-    
                         </tr>
-                    {% endfor %}
-            </table>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-    
-    
-    
-    <div class="card">    
-   	<h2 class="evaluationul text-center">Network</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-bordered table-hover">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Network"%}
-                        <tr>
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Web Software</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Web Software"%}
+             		    <tr>
                             <td>{{ row.brandapplication }}</td>
                             <td>{{ row.product }}</td>
         					<td>{{ row.evaluation }}</td>
-    
                         </tr>
-                    {% endfor %}
-            </table>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-    
-    
-    
-    <div class="card">    
-   	<h2 class="evaluationul text-center">Virtualisation / RDP / RDS</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-hover table-bordered">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Virtualisation / RDP / RDS"%}
-                        <tr>
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Network</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Network"%}
+             		    <tr>
                             <td>{{ row.brandapplication }}</td>
                             <td>{{ row.product }}</td>
         					<td>{{ row.evaluation }}</td>
-    
                         </tr>
-                    {% endfor %}
-            </table>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-    
-    
-    
-    <div class="card">    
-   	<h2 class="evaluationul text-center">Programming (global)</h2>
-        <div class="table-responsive">
-           <table id="evaluation" class="table table-light table-striped table-bordered table-bordered table-hover">
-                <tr class="tableHeader bg-secondary">
-                    <td>Brand or Application</td>
-        			<td>Product</td>
-        			<td>Evaluation</td>
-                </tr>
-                    {% for row in selfevaluation if row.categorie.label == "Programming (global)"%}
-                        <tr>
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Virtualisation / RDP / RDS</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Virtualisation / RDP / RDS"%}
+             		    <tr>
                             <td>{{ row.brandapplication }}</td>
                             <td>{{ row.product }}</td>
         					<td>{{ row.evaluation }}</td>
-    
                         </tr>
-                    {% endfor %}
-            </table>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+        	<div class="card-header">
+        		<h5 class="card-title">Programming (global)</h5>
+      		</div>
+    		<div class="card-body">
+             <p class="card-text">
+            		<table id="evaluation" class="table table-light table-striped table-bordered table-hover">
+                    <tr class="tableHeader bg-info">
+                        <td>Brand or Application</td>
+            			<td>Product</td>
+            			<td>Evaluation</td>
+                    </tr>            		
+            		{% for row in selfevaluation if row.categorie.label == "Programming (global)"%}
+             		    <tr>
+                            <td>{{ row.brandapplication }}</td>
+                            <td>{{ row.product }}</td>
+        					<td>{{ row.evaluation }}</td>
+                        </tr>
+            		{% endfor %}
+            		</table>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     
                     

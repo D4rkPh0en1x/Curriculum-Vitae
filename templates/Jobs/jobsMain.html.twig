@@ -8,16 +8,21 @@
 
 <div class="datacontainer bg-secondary">
     {% for row in jobs %}
-    	<div class="card">
+    
+    
+    
+    
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card">
+            <div class="card-header">
+        		<h5 class="card-title text-center">{{ row.label }}</h5>
+      		</div>
+    		<div class="card-body">
             
-     
-           
-          <div class="row row-eq-height bg-light">
-            <div class="col-sm text-center">
-            	<p class="jobsul">Company</p>
-             	{{ row.label }}
-            </div>
-            <div class="col-sm text-center">
+            <p class="card-text">
+          <div class="row">  
+          <div class="col-sm text-center">
                 {% if row.jobstart != null %}
                 	<p  class="jobsul">Job start</p>
                     {{ row.jobstart|date("d/m/Y") }}
@@ -36,17 +41,18 @@
                 	{% set jobmonth = date(row.jobend).diff((date(row.jobstart))).format('%m') %}                	
                 	{% set jobdays = date(row.jobend).diff((date(row.jobstart))).format('%d') %}                	
             		{% if   jobyear > 0 %}
-                       {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s)') }}<br/>
+                       {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s)') }} - 
    					{% endif %}
                 	{% if   jobmonth > 0 %}       					
-                        {{ date(row.jobend).diff((date(row.jobstart))).format('%m month(s)') }}<br/>
+                        {{ date(row.jobend).diff((date(row.jobstart))).format('%m month(s)') }} - 
                     {% endif %}
                 	{% if   jobdays > 0 %}                    
                         {{ date(row.jobend).diff((date(row.jobstart))).format('%d day(s)') }}
                     {% endif %}                                     
                 {% endif %}
             </div>
-          </div>            
+          </div>
+                      
           <hr/>  
  
            <div class="row">
@@ -76,7 +82,15 @@
 
             
             
-   		</div> 
+   		</div>             
+            
+            
+            
+            </p>
+          </div>
+        </div>
+      </div>
+ 
     
     {% endfor %}
 </div>

@@ -4,14 +4,25 @@
 
 {% block body %}
 <div class="datacontainer bg-secondary">
-	<div class="card">
-            {% for row in maintext %}
-           
-                        <h2>{{ row.label }}</h2>
-                        {{ row.description|raw }}
-                        
-                                    {% endfor %}
-	</div>
+{% for row in maintext %}
+
+
+      <div class="col-sm">
+        <div class="card">
+            <div class="card-header">
+        		<h5 class="card-title text-center">{{ row.label }}</h5>
+      		</div>
+    		<div class="card-body">
+            
+            <p class="card-text">
+            	{{ row.description|raw }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endfor %}	
 </div>
 
 {% endblock %}

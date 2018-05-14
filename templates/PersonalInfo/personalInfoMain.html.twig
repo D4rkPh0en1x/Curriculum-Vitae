@@ -7,10 +7,20 @@
 
 
 <div class="datacontainer bg-secondary">
-	{% for row in personalinfo %}
-    <div class="row">
-    	<div class="col-sm-7 card">
-            Surname: {{ row.surname }}
+{% for row in personalinfo %}
+     
+    
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="card">
+        <div class="card-header">
+    		<h5 class="card-title">Personal Data</h5>
+  		</div>
+		<div class="card-body">
+        
+        <p class="card-text">            
+        	Surname: {{ row.surname }}
             <br/>Name: {{ row.name }}
             <br/>Birthdate: {{ date (row.birthdate).format('d/m/Y') }}
             <br/>Birthplace: {{ row.birthplace }}
@@ -23,15 +33,32 @@
             <br/>Smoker: {{ row.smoker }}
             <br/>Driving Licence: {{ row.drivinglicence }}
             <br/>Mail Address: {{ row.mail }}
-   		</div>
-   		<div class="col-sm-4 card">
-   			<h2 class="text-center">Acquired Skills</h2>
-   			<table class="table table-light borderless">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+    
+        <div class="card-header">
+    		<h5 class="card-title">Acquired Skills</h5>
+  		</div>  
+      <div class="card-body">
+        
+        <p class="card-text">
+        
+        	<table class="table table-light borderless">
        		{% for rowSkill in row.acquiredSkills %}
        		<tr data-toggle="modal" data-target="#{{ rowSkill.id }}">
-       			<td data-toggle="modal" data-target="#{{ rowSkill.id }}">
+       			<td>
        			             		
-                    	 {{ rowSkill.label }}
+                    	    
+                    	    <button type="button" class="btn btn-transparent" data-toggle="modal" data-target="#{{ rowSkill.id }}">
+     							 <a data-toggle="popover" data-trigger="hover" data-content="more details">{{ rowSkill.label }} <i class="fas fa-info-circle"></i></a>
+    						</button>
+                    	 
+                    	 
+                    	 
                			
        			</td>
        		</tr>
@@ -61,27 +88,112 @@
         	<a href="{{ path('acquiredskill_add', {'personalinfoid': row.getId()}) }}">
         		<button class="btn btn-success btn-block">{{ 'ACQUIREDSKILL.ADD'|trans }}</button>
         	</a>
-   		</div>
-   		
-   	</div>
-   	<div class="row">    
-   		<div class="card col-sm-7">
-			Languages
-        </div>
-        <div class="card col-sm-4">
-			Soft Skills
-        </div>
-   	</div>
-   	   	<div class="row">    
-   		<div class="card col-sm-7">
-			Hobbies
-        </div>
-        <div class="card col-sm-4">
-			Personal Web Sites
-        </div>
-   	</div>	 	     
-    {% endfor %}
-	
+        
+		</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-header">
+    		<h5 class="card-title">Languages</h5>
+  		</div>
+		<div class="card-body">
+       
+        <p class="card-text">
+				
+			{% for rowLanguages in row.languages %}
+				 {{ rowLanguages.label }}
+				 {{ rowLanguages.written }}
+				 {{ rowLanguages.spoken }}
+			{% endfor %}
+			<a href="{{ path('languages_add', {'personalinfoid': row.getId()}) }}">
+        		<button class="btn btn-success btn-block">{{ 'LANGUAGES.ADD'|trans }}</button>
+        	</a>
+		</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+    
+            <div class="card-header">
+    		<h5 class="card-title">Soft Skills</h5>
+  		</div>
+      <div class="card-body">
+
+        <p class="card-text">
+			
+			{% for rowSoftSkills in row.softskills %}
+				 {{ rowSoftSkills.label }}
+				 {{ rowSoftSkills.description|raw }}
+
+			{% endfor %}
+
+		</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-header">
+    		<h5 class="card-title">Hobbies</h5>
+  		</div>
+		<div class="card-body">
+       
+        <p class="card-text">
+				
+			
+			{% for rowHobbies in row.hobbies %}
+				 {{ rowHobbies.label }}
+				 {{ rowHobbies.description|raw }}
+
+			{% endfor %}
+
+		</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+    
+            <div class="card-header">
+    		<h5 class="card-title">Personal Web Sites</h5>
+  		</div>
+      <div class="card-body">
+
+        <p class="card-text">
+			
+			
+			{% for rowWeb in row.webs %}
+				 {{ rowWeb.label }}
+				 {{ rowWeb.url}}
+
+			{% endfor %}	
+		</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endfor %}	
 </div>
 
 {% endblock %}

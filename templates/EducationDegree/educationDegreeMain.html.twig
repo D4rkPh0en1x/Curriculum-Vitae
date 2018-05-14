@@ -7,12 +7,18 @@
 
 <div class="datacontainer bg-secondary">
     {% for row in educationdegree %}
-        <div class="card">
-          <div class="row row-eq-height bg-light">
-            <div class="col-sm text-center">
-            	<p class="jobsul">BACC</p>
-             	{{ row.label }}
-        	</div>
+    
+     <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+            <div class="card-header">
+        		<h5 class="card-title">BACC - {{ row.label }}</h5>
+      		</div>
+    		<div class="card-body">
+            
+            <p class="card-text">
+            
+            <div class="row row-eq-height">
             <div class="col-sm text-center">
             	<p  class="jobsul">Grade</p>
                 {{ row.grade }}
@@ -27,13 +33,20 @@
             </div>
 		  </div>            
 		<hr/>
-          <div class="row row-eq-height bg-light">
+          <div class="row row-eq-height">
             <div class="col-sm">
             	<p class="jobsul text-center">Description</p>
              	{{ row.description|raw }}
         	</div> 
           </div> 
-    	</div>
+            
+            
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>   
+
     {% endfor %}
 </div>
 

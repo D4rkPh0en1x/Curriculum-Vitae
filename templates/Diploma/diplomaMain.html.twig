@@ -8,10 +8,22 @@
 
 <div class="datacontainer bg-secondary">
     {% for row in diploma %}
-    	<div class="card">
-            <h2>{{ row.label }}</h2>
-            {{ row.description|raw }}
-   		</div>         
+    
+    
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card text-center">
+            <div class="card-header">
+        		<h5 class="card-title">{{ row.label }}</h5>
+      		</div>
+    		<div class="card-body">
+            
+            <p class="card-text">{{ row.description|raw }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      
     {% endfor %}
 </div>
 

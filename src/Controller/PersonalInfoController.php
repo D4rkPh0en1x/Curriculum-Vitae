@@ -33,10 +33,10 @@ use App\Form\PersonalInfoForm;
 use App\Entity\AcquiredSkills;
 use App\Manager\AcquireSkillsManager;
 use App\Repository\PersonalInfoRepository;
-use App\Manager\PersonalInfoManager;
 use App\Form\PersonalInfoFormEdit;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Hillrange\CKEditor\Form\CKEditorType;
+use App\Entity\Languages;
 
 
 class PersonalInfoController extends Controller
@@ -105,7 +105,6 @@ class PersonalInfoController extends Controller
         PersonalInfoRepository $repository,
         FormFactoryInterface $factory, 
         ObjectManager $manager,
-        PersonalInfoManager $personalinfoManager,
         UrlGeneratorInterface $urlGenerator
         ) {
             $editPersonalInfoId = $personalinfoid->getID();
@@ -178,6 +177,59 @@ class PersonalInfoController extends Controller
             $this->twig->render('PersonalInfo/personalInfoAdd.html.twig',
                 ['form' => $form->createView()]));
     } 
+    
+    
+    
+    
+    /**
+     * @param Request  $request
+     * @param PersonalInfo $personalinfoid
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/personalinfo/languages/add/{personalinfoid}", name="languages_add")
+     */
+    public function personalInfoAddLanguages(
+        Request $request,
+        PersonalInfo $personalinfoid,
+        PersonalInfoRepository $repository,
+        FormFactoryInterface $factory,
+        ObjectManager $manager,
+        UrlGeneratorInterface $urlGenerator
+        ) {
+            $editPersonalInfoId = $personalinfoid->getID();
+            
+            $personalInfo = $repository->find($editPersonalInfoId);
+            
+            $languages = new Languages();
+            
+            $builder = $factory->createBuilder(FormType::class, $languages);
+            $builder->add('label', TextType::class)
+                    ->add('written', TextType::class)
+                    ->add('spoken', TextType::class)
+                
+                ->add('submit', SubmitType::class);
+                
+                
+                $form = $builder->getForm();
+                $form->handleRequest($request);
+                
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $languages->setPersonalinfo($personalInfo);
+                    $manager->persist($languages);
+                    $manager->flush();
+                    return new RedirectResponse($urlGenerator->generate('personalinfo_main'));
+                }
+                
+                return $this->render(
+                    'PersonalInfo/personalInfoAddLanguages.html.twig',
+                    [
+                        'form' => $form->createView(),
+                        'routeAttr' => ['personalinfoid' => $personalinfoid->getId()],
+                        'currentpersonalinfo' => $personalinfoid ->getId(),
+                    ]
+                    
+                    );
+    }
     
 }
 
