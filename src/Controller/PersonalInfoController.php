@@ -37,6 +37,9 @@ use App\Form\PersonalInfoFormEdit;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Hillrange\CKEditor\Form\CKEditorType;
 use App\Entity\Languages;
+use App\Entity\Hobbies;
+use App\Entity\Web;
+use App\Entity\SoftSkills;
 
 
 class PersonalInfoController extends Controller
@@ -230,6 +233,186 @@ class PersonalInfoController extends Controller
                     
                     );
     }
+ 
+    
+    
+    /**
+     * @param Request  $request
+     * @param PersonalInfo $personalinfoid
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/personalinfo/hobbies/add/{personalinfoid}", name="hobbies_add")
+     */
+    public function personalInfoAddHobbies(
+        Request $request,
+        PersonalInfo $personalinfoid,
+        PersonalInfoRepository $repository,
+        FormFactoryInterface $factory,
+        ObjectManager $manager,
+        UrlGeneratorInterface $urlGenerator
+        ) {
+            $editPersonalInfoId = $personalinfoid->getID();
+            
+            $personalInfo = $repository->find($editPersonalInfoId);
+            
+            $hobbies = new Hobbies();
+            
+            $builder = $factory->createBuilder(FormType::class, $hobbies);
+            $builder->add('label', TextType::class)
+            ->add('description', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                    'filebrowserBrowseRoute' => 'elfinder',
+                    'filebrowserBrowseRouteParameters' => array(
+                        'instance' => 'default',
+                        'homeFolder' => '')
+                )))
+            
+            ->add('submit', SubmitType::class);
+            
+            
+            $form = $builder->getForm();
+            $form->handleRequest($request);
+            
+            if ($form->isSubmitted() && $form->isValid()) {
+                $hobbies->setPersonalinfo($personalInfo);
+                $manager->persist($hobbies);
+                $manager->flush();
+                return new RedirectResponse($urlGenerator->generate('personalinfo_main'));
+            }
+            
+            return $this->render(
+                'PersonalInfo/personalInfoAddHobbies.html.twig',
+                [
+                    'form' => $form->createView(),
+                    'routeAttr' => ['personalinfoid' => $personalinfoid->getId()],
+                    'currentpersonalinfo' => $personalinfoid ->getId(),
+                ]
+                
+                );
+    }
+    
+    
+
+    /**
+     * @param Request  $request
+     * @param PersonalInfo $personalinfoid
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/personalinfo/webs/add/{personalinfoid}", name="webs_add")
+     */
+    public function personalInfoAddWebs(
+        Request $request,
+        PersonalInfo $personalinfoid,
+        PersonalInfoRepository $repository,
+        FormFactoryInterface $factory,
+        ObjectManager $manager,
+        UrlGeneratorInterface $urlGenerator
+        ) {
+            $editPersonalInfoId = $personalinfoid->getID();
+            
+            $personalInfo = $repository->find($editPersonalInfoId);
+            
+            $webs = new Web();
+            
+            $builder = $factory->createBuilder(FormType::class, $webs);
+            $builder->add('label', TextType::class)
+            ->add('url', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                    'filebrowserBrowseRoute' => 'elfinder',
+                    'filebrowserBrowseRouteParameters' => array(
+                        'instance' => 'default',
+                        'homeFolder' => '')
+                )))
+                
+                ->add('submit', SubmitType::class);
+                
+                
+                $form = $builder->getForm();
+                $form->handleRequest($request);
+                
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $webs->setPersonalinfo($personalInfo);
+                    $manager->persist($webs);
+                    $manager->flush();
+                    return new RedirectResponse($urlGenerator->generate('personalinfo_main'));
+                }
+                
+                return $this->render(
+                    'PersonalInfo/personalInfoAddHobbies.html.twig',
+                    [
+                        'form' => $form->createView(),
+                        'routeAttr' => ['personalinfoid' => $personalinfoid->getId()],
+                        'currentpersonalinfo' => $personalinfoid ->getId(),
+                    ]
+                    
+                    );
+    }
+    
+    
+    /**
+     * @param Request  $request
+     * @param PersonalInfo $personalinfoid
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/personalinfo/softskills/add/{personalinfoid}", name="softskills_add")
+     */
+    public function personalInfoAddSoftSkills(
+        Request $request,
+        PersonalInfo $personalinfoid,
+        PersonalInfoRepository $repository,
+        FormFactoryInterface $factory,
+        ObjectManager $manager,
+        UrlGeneratorInterface $urlGenerator
+        ) {
+            $editPersonalInfoId = $personalinfoid->getID();
+            
+            $personalInfo = $repository->find($editPersonalInfoId);
+            
+            $softskills = new SoftSkills();
+            
+            $builder = $factory->createBuilder(FormType::class, $softskills);
+            $builder->add('label', TextType::class)
+            ->add('description', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                    'filebrowserBrowseRoute' => 'elfinder',
+                    'filebrowserBrowseRouteParameters' => array(
+                        'instance' => 'default',
+                        'homeFolder' => '')
+                )))
+                
+                ->add('submit', SubmitType::class);
+                
+                
+                $form = $builder->getForm();
+                $form->handleRequest($request);
+                
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $softskills->setPersonalinfo($personalInfo);
+                    $manager->persist($softskills);
+                    $manager->flush();
+                    return new RedirectResponse($urlGenerator->generate('personalinfo_main'));
+                }
+                
+                return $this->render(
+                    'PersonalInfo/personalInfoAddSoftSkills.html.twig',
+                    [
+                        'form' => $form->createView(),
+                        'routeAttr' => ['personalinfoid' => $personalinfoid->getId()],
+                        'currentpersonalinfo' => $personalinfoid ->getId(),
+                    ]
+                    
+                    );
+    }
+    
+    
+    
+    
+    
+    
+    
     
 }
 

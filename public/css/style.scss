@@ -21,7 +21,7 @@
 
 html, body {
   font-family: Comfortaa-Bold;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 h1 {
@@ -368,6 +368,14 @@ footer a {
     border: none;
 }
 
+.borderless {
+    border: none;
+}
+
 .btn-transparent {
   background-color: transparent;
+}
+
+.karrikatur {
+  max-height: 150px;
 }

@@ -69,7 +69,10 @@ class MainController extends Controller
 
         $repository = $this->getDoctrine()
         ->getRepository(Main::class);
-        $maintext = $repository->findAll();
+        $maintext = $repository->findBy([], ['id' => 'ASC']);
+        
+        
+  
         
         return new Response(
             $twig->render(
