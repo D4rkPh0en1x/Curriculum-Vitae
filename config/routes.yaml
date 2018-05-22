@@ -163,7 +163,22 @@ personalinfo_main:
      requirements:
         _locale: 'en|fr|de'          
         
-       
+webportfolio_add:
+     path: /{_locale}/webportfolio/add
+     defaults:
+        _controller: App\Controller\WebPortfolioController::webPortfolioAdd
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'     
+        
+webportfolio_main:
+     path: /{_locale}/webportfolio/main
+     defaults:
+        _controller: App\Controller\WebPortfolioController::webPortfolioMain
+        _locale: 'en'  
+     requirements:
+        _locale: 'en|fr|de'          
+               
         
         
         

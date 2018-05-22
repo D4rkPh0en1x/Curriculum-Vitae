@@ -58,4 +58,21 @@ fm_elfinder:
                                 quality: 100
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf']
                         upload_deny: ['all']
-                        upload_max_size: 256M                              
+                        upload_max_size: 256M
+                        
+                    webportfolio:
+                        driver: LocalFileSystem
+                        path: uploads/webportfolio
+                        plugins:
+                            AutoResize:
+                                enable: true # For control by volume driver
+                                maxWidth: 1024 # Path to Water mark image
+                                maxHeight: 1024 # Margin right pixel
+                                quality: 100 # JPEG image save quality
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf']
+                        upload_deny: ['all']
+                        upload_max_size: 256M          
+                        
+                        
+                        
+                                                                    
