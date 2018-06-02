@@ -38,7 +38,6 @@ use App\Entity\Web;
 use App\Entity\SoftSkills;
 use App\Entity\WebPortfolio;
 use App\Form\WebPortfolioForm;
-use App\Entity\WebPortfolioImages;
 use App\Repository\WebPortfolioRepository;
 
 
@@ -118,64 +117,6 @@ class WebPortfolioController extends Controller
             $this->twig->render('WebPortfolio/webPortfolioAdd.html.twig',
                 ['form' => $form->createView()]));
     }
-    
-    
-    
-    
-    /**
-     * @param Request  $request
-     * @param WebPortfolio $webportfolioid
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/webportfolio/images/add/{webportfolioid}", name="webportfolioimages_add")
-     */
-    public function webPortfolioAddImages(
-        Request $request,
-        WebPortfolio $webportfolioid,
-        WebPortfolioRepository $repository,
-        FormFactoryInterface $factory,
-        ObjectManager $manager,
-        UrlGeneratorInterface $urlGenerator
-        ) {
-            $editWebPortfolioId = $webportfolioid->getID();
-            
-            $webPortfolio = $repository->find($editWebPortfolioId);
-            
-            $webportfolioimage = new WebPortfolioImages();
-            
-            $builder = $factory->createBuilder(FormType::class, $webportfolioimage);
-            $builder
-            ->add('image', CKEditorType::class, array(
-                'config' => array(
-                    'uiColor' => '#ffffff',
-                    'filebrowserBrowseRoute' => 'elfinder',
-                    'filebrowserBrowseRouteParameters' => array(
-                        'instance' => 'default',
-                        'homeFolder' => '')
-                )))
-            ->add('submit', SubmitType::class);
-            
-            
-            $form = $builder->getForm();
-            $form->handleRequest($request);
-            
-            if ($form->isSubmitted() && $form->isValid()) {
-                $webportfolioimage->setWebportfolio($webPortfolio);
-                $manager->persist($webportfolioimage);
-                $manager->flush();
-                return new RedirectResponse($urlGenerator->generate('webportfolio_main'));
-            }
-            
-            return $this->render(
-                'WebPortfolio/webPortfolioAddImages.html.twig',
-                [
-                    'form' => $form->createView(),
-                    'routeAttr' => ['webportfolioid' => $webportfolioid->getId()],
-                ]
-                
-                );
-    }
-    
     
 }
 

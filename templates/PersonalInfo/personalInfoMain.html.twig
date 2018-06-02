@@ -148,7 +148,7 @@
 		</p>
 		{% if is_granted('ROLE_ADMIN') %}
         	<a href="{{ path('softskills_add', {'personalinfoid': row.getId()}) }}">
-        		<button class="btn btn-success btn-block">{{ 'ACQUIREDSKILL.ADD'|trans }}</button>
+        		<button class="btn btn-success btn-block">{{ 'SOFTSKILL.ADD'|trans }}</button>
         	</a>
        	{% endif %}
       </div>
@@ -239,7 +239,7 @@
 		</p>
 		{% if is_granted('ROLE_ADMIN') %}
         	<a href="{{ path('webs_add', {'personalinfoid': row.getId()}) }}">
-        		<button class="btn btn-success btn-block">{{ 'ACQUIREDSKILL.ADD'|trans }}</button>
+        		<button class="btn btn-success btn-block">{{ 'WEBS.ADD'|trans }}</button>
         	</a>
         {% endif %}
       </div>
@@ -308,7 +308,7 @@
 		</p>
 		{% if is_granted('ROLE_ADMIN') %}
         	<a href="{{ path('hobbies_add', {'personalinfoid': row.getId()}) }}">
-        		<button class="btn btn-success btn-block">{{ 'ACQUIREDSKILL.ADD'|trans }}</button>
+        		<button class="btn btn-success btn-block">{{ 'HOBBIES.ADD'|trans }}</button>
         	</a>
         {% endif %}
       </div>

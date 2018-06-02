@@ -1,0 +1,192 @@
+{%  extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+
+
+<div class="datacontainer bg-secondary">
+    {% for row in webportfolio %}
+
+    <div class="row justify-content-md-center row-eq-height">
+      <div class="col-sm">
+        <div class="card">
+            <div class="card-header">
+        		<h5 class="card-title text-center">{{ row.label }}</h5>
+      		</div>
+    		<div class="card-body">
+            <p class="card-text">{{ row.description|raw }}</p>
+            <p class="card-text">{{ row.technic }}</p>
+            <p class="card-text">{{ row.url }}</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>  
+    
+    
+    
+    
+<div class="col-sm">
+  <div class="card text-center">
+         <div class="card-header">
+    		<h5 class="card-title">Images</h5>
+  		</div>
+      <div class="card-body">
+
+        <p class="card-text">
+            <div class="gallery">
+            {% for rowWebPortfolioImages in row.WebPortfolioImages %}  
+              <figure>
+                {{ rowWebPortfolioImages.image|raw }}
+                <figcaption>Daytona Beach <small>United States</small></figcaption>
+              </figure>
+            {% endfor %}
+            </div>
+ 		</p>
+		{% if is_granted('ROLE_ADMIN') %}
+        	<a href="{{ path('webportfolioimages_add', {'webportfolioid': row.getId()}) }}">
+        		<button class="btn btn-success btn-block">{{ 'WEBPORTFOLIOIMAGES.ADD'|trans }}</button>
+        	</a>
+       	{% endif %}
+      </div>
+    </div>
+  </div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+  <symbol id="close" viewBox="0 0 18 18">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+			S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+			l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+			c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+			s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z"/>
+  </symbol>
+</svg>
+<script src="/js/gallery_popup.js"></script>
+
+
+        <div class="col-xs-12 col-md">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">You can even have a Panel Title</h3>
+                </div>
+                <div class="panel-image hide-panel-body">
+                    <img src="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52c470899a2e1_1.JPG" class="panel-image-preview" />
+                    <label for="toggle-3"></label>
+                </div>
+                <input type="checkbox" id="toggle-3" class-"panel-image-toggle">
+                <div class="panel-body">
+                    <h4>Title of Image</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.</p>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="#twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
+
+
+
+
+<div class="container" style="margin-top:10px;">
+	<div class="row form-group">
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-image">
+                    <img src="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52d09387ae003_1.JPG" class="panel-image-preview" />
+                    <label for="toggle-1"></label>
+                </div>
+                <input type="checkbox" id="toggle-1" class-"panel-image-toggle">
+                <div class="panel-body">
+                    <h4>Title of Image</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.</p>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="#twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-image hide-panel-body">
+                    <img src="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52cf9489095e8_1.JPG" class="panel-image-preview" />
+                    <label for="toggle-2"></label>
+                </div>
+                <input type="checkbox" id="toggle-2" class-"panel-image-toggle">
+                <div class="panel-body">
+                    <h4>Title of Image</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.</p>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="#twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+        </div>
+	</div>
+    
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">You can even have a Panel Title</h3>
+                </div>
+                <div class="panel-image hide-panel-body">
+                    <img src="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52c470899a2e1_1.JPG" class="panel-image-preview" />
+                    <label for="toggle-3"></label>
+                </div>
+                <input type="checkbox" id="toggle-3" class-"panel-image-toggle">
+                <div class="panel-body">
+                    <h4>Title of Image</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.</p>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="#twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-image">
+                    <img src="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52cd36aac6bed_1.JPG" class="panel-image-preview" />
+                    <label for="toggle-4"></label>
+                </div>
+                <input type="checkbox" id="toggle-4" checked class-"panel-image-toggle">
+                <div class="panel-body">
+                    <h4>Show the Description by default!</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.</p>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#facebook"><span class="fab fa-facebook"></span></a>
+                    <a href="#twitter"><span class="fab fa-twitter"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}

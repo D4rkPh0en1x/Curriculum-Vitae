@@ -24,6 +24,14 @@ class WebPortfolioForm extends AbstractType
                     'instance' => 'default',
                     'homeFolder' => '')
             )))
+        ->add('mainimage', CKEditorType::class, array(
+            'config' => array(
+                'uiColor' => '#ffffff',
+                'filebrowserBrowseRoute' => 'elfinder',
+                'filebrowserBrowseRouteParameters' => array(
+                    'instance' => 'default',
+                    'homeFolder' => '')
+            )))
         ->add('technic', TextType::class)
         ->add('url', TextType::class)
         ->add('submit', SubmitType::class);

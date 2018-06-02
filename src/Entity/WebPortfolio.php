@@ -38,10 +38,11 @@ class WebPortfolio
      */
     private $url;
 
+
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\WebPortfolioImages", mappedBy="webportfolio")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $webPortfolioImages;
+    private $mainimage;
 
     public function __construct()
     {
@@ -101,33 +102,16 @@ class WebPortfolio
         return $this;
     }
 
-    /**
-     * @return Collection|WebPortfolioImages[]
-     */
-    public function getWebPortfolioImages(): Collection
+  
+
+    public function getMainimage(): ?string
     {
-        return $this->webPortfolioImages;
+        return $this->mainimage;
     }
 
-    public function addWebPortfolioImage(WebPortfolioImages $webPortfolioImage): self
+    public function setMainimage(?string $mainimage): self
     {
-        if (!$this->webPortfolioImages->contains($webPortfolioImage)) {
-            $this->webPortfolioImages[] = $webPortfolioImage;
-            $webPortfolioImage->setWebportfolio($this);
-        }
-
-        return $this;
-    }
-
-    public function removeWebPortfolioImage(WebPortfolioImages $webPortfolioImage): self
-    {
-        if ($this->webPortfolioImages->contains($webPortfolioImage)) {
-            $this->webPortfolioImages->removeElement($webPortfolioImage);
-            // set the owning side to null (unless already changed)
-            if ($webPortfolioImage->getWebportfolio() === $this) {
-                $webPortfolioImage->setWebportfolio(null);
-            }
-        }
+        $this->mainimage = $mainimage;
 
         return $this;
     }

@@ -43,7 +43,27 @@ security:
         - { path: "^/[a-zA-Z]+/selfevaluation/add/evalcategories", roles: "ROLE_ADMIN"}  
         - { path: "^/[a-zA-Z]+/selfevaluation/main/evalcategories", roles: "ROLE_ADMIN"}  
         - { path: "^/[a-zA-Z]+/selfevaluation/add", roles: "ROLE_ADMIN"}  
-        - { path: "^/[a-zA-Z]+/personalinfo/add", roles: "ROLE_ADMIN"}  
+        - { path: "^/[a-zA-Z]+/personalinfo/add", roles: "ROLE_ADMIN"}
+        - { path: "^/[a-zA-Z]+/webportfolio/add", roles: "ROLE_ADMIN"}
+        
+        - { path: "^/[a-zA-Z]+/softskills/add/[1-9]", roles: "ROLE_ADMIN"}
+        - { path: "^/softskills/add/[1-9]", roles: "ROLE_ADMIN"}  
+        
+        - { path: "^/[a-zA-Z]+/languages/add/[1-9]", roles: "ROLE_ADMIN"}
+        - { path: "^/languages/add/[1-9]", roles: "ROLE_ADMIN"}         
+        
+        - { path: "^/[a-zA-Z]+/webs/add/[1-9]", roles: "ROLE_ADMIN"}
+        - { path: "^/webs/add/[1-9]", roles: "ROLE_ADMIN"}  
+        
+        - { path: "^/[a-zA-Z]+/hobbies/add/[1-9]", roles: "ROLE_ADMIN"}
+        - { path: "^/hobbies/add/[1-9]", roles: "ROLE_ADMIN"}          
+                
+        - { path: "^/[a-zA-Z]+/acquiredskill/add/[1-9]", roles: "ROLE_ADMIN"}
+        - { path: "^/acquiredskill/add/[1-9]", roles: "ROLE_ADMIN"}        
+        
+        - { path: "^/[a-zA-Z]+/admin", roles: "ROLE_ADMIN"}  
+        - { path: "^/admin", roles: "ROLE_ADMIN"}  
+          
                      
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
