@@ -8,10 +8,10 @@
 
 <div class="datacontainer bg-secondary">
     {% for row in jobs %}
-    
-    
-    
-    
+
+
+
+
     <div class="row justify-content-md-center row-eq-height">
       <div class="col-sm">
         <div class="card">
@@ -19,9 +19,9 @@
         		<h5 class="card-title text-center">{{ row.label }}</h5>
       		</div>
     		<div class="card-body">
-            
+
             <p class="card-text">
-          <div class="row">  
+          <div class="row">
           <div class="col-sm text-center">
                 {% if row.jobstart != null %}
                 	<p  class="jobsul">Job start</p>
@@ -29,37 +29,41 @@
                 {% endif %}
             </div>
             <div class="col-sm text-center">
+            {% if row.jobend == null %}
+              <p  class="jobsul">current job</p>
+            {% endif %}
                 {% if row.jobend != null %}
                 	<p  class="jobsul">Job end</p>
                		{{ row.jobend|date("d/m/Y") }}
                 {% endif %}
             </div>
             <div class="col-sm text-center">
+
                 {% if row.jobend != null %}
                 	<p  class="jobsul">working period</p>
                 	{% set jobyear = date(row.jobend).diff((date(row.jobstart))).format('%y') %}
-                	{% set jobmonth = date(row.jobend).diff((date(row.jobstart))).format('%m') %}                	
-                	{% set jobdays = date(row.jobend).diff((date(row.jobstart))).format('%d') %}                	
+                	{% set jobmonth = date(row.jobend).diff((date(row.jobstart))).format('%m') %}
+                	{% set jobdays = date(row.jobend).diff((date(row.jobstart))).format('%d') %}
             		{% if   jobyear > 0 %}
-                       {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s)') }} - 
+                       {{ date(row.jobend).diff((date(row.jobstart))).format('%y year(s)') }} -
    					{% endif %}
-                	{% if   jobmonth > 0 %}       					
-                        {{ date(row.jobend).diff((date(row.jobstart))).format('%m month(s)') }} - 
+                	{% if   jobmonth > 0 %}
+                        {{ date(row.jobend).diff((date(row.jobstart))).format('%m month(s)') }} -
                     {% endif %}
-                	{% if   jobdays > 0 %}                    
+                	{% if   jobdays > 0 %}
                         {{ date(row.jobend).diff((date(row.jobstart))).format('%d day(s)') }}
-                    {% endif %}                                     
+                    {% endif %}
                 {% endif %}
             </div>
           </div>
-                      
-          <hr/>  
- 
+
+          <hr/>
+
            <div class="row">
             <div class="col-sm text-center">
             	<p class="jobsul">Employed as :</p>
                 {{ row.employedas }}
-            </div>           
+            </div>
             <div class="col-sm text-center">
             	<p class="jobsul">Location :</p>
                 {{ row.location }}
@@ -70,7 +74,7 @@
             </div>
 
 
-          </div>  
+          </div>
      <hr/>
 
            <div class="row">
@@ -78,20 +82,20 @@
             	<p class="jobsul text-center">Job Description :</p>
                 {{ row.description|raw }}
             </div>
-          </div> 
+          </div>
 
-            
-            
-   		</div>             
-            
-            
-            
+
+
+   		</div>
+
+
+
             </p>
           </div>
         </div>
       </div>
- 
-    
+
+
     {% endfor %}
 </div>
 

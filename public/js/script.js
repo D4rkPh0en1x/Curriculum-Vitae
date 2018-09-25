@@ -5,6 +5,20 @@ $(document).ready(function() {
   $('li.LanguageSelector').removeClass('active');
 });
 
+
+
+$(document).ready(function() {
+    $('#offlineprojects').DataTable({
+        searching: false
+    });
+} );
+
+$(document).ready(function() {
+    $('#stoppedprojects').DataTable({
+        searching: false
+    });
+} );
+
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });

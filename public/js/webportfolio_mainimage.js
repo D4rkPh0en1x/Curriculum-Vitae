@@ -8,7 +8,7 @@ CKEDITOR.on('instanceReady', function (ev) {
         elements : {
             img: function( el ) {
                 // Add bootstrap "img-responsive" class to each inserted image
-                el.addClass('panel-image-preview');
+                el.addClass('img-fluid panel-image-preview');
                 
                 // Remove inline "height" and "width" styles and
                 // replace them with their attribute counterparts.
