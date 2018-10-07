@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+<div class="datacontainer editjob">
+
+
+
+{{ form_start(jobedit)  }}	
+
+{{ form_label(jobedit.label) }}
+{{ form_widget(jobedit.label, {'id':'label-' ~ currentjob }) }}
+
+{{ form_label(jobedit.location) }}
+{{ form_widget(jobedit.location, {'id':'location-' ~ currentjob }) }}
+
+{{ form_label(jobedit.country) }}
+{{ form_widget(jobedit.country, {'id':'country-' ~ currentjob }) }}
+
+{{ form_label(jobedit.jobstart) }}
+{{ form_widget(jobedit.jobstart, {'id':'jobstart-' ~ currentjob }) }}
+
+{{ form_label(jobedit.jobend) }}
+{{ form_widget(jobedit.jobend, {'id':'jobend-' ~ currentjob }) }}
+
+{{ form_label(jobedit.employedas) }}
+{{ form_widget(jobedit.employedas, {'id':'employedas-' ~ currentjob }) }}
+
+{{ form_label(jobedit.description) }}
+{{ form_widget(jobedit.description, {'id':'description-' ~ currentjob }) }}
+
+{{ form_label(jobedit.save) }}
+{{ form_widget(jobedit.save, {'id':'save-' ~ currentjob }) }}
+
+
+{{ form_rest(jobedit) }}
+{{ form_end(jobedit)}}
+</div>
+
+
+
+{% endblock %}

@@ -1,11 +1,29 @@
 HEADER:
   MAIN: Welcome
+  MAINLIST: Welcome (list)
+  MAINADD: Welcome (add)
   PERSONALINFO: Personal Info
+  PERSONALINFOLIST: Personal Info (list)
+  PERSONALINFOADD: Personal Info (add)
   EDUCATIONDEGREE: Education degree
+  EDUCATIONDEGREELIST: Education degree (list)
+  EDUCATIONDEGREEADD: Education degree (add)
   JOBS: Jobs
+  JOBSLIST: Jobs (list)
+  JOBADD: Jobs (add)
   SELFEVALUATION: Self Evaluation
+  SELFEVALUATIONLIST: Self Evaluation (list)
+  SELFEVALUATIONADD: Self Evaluation (add)
+  SELFEVALUATIONMAINEVALCATEGORIES: Self Evaluation Categories (list)
+  SELFEVALUATIONADDEVALCATEGORIES: Self Evaluation Categories (add)
   DIPLOMA: Diploma
+  DIPLOMALIST: Diploma (list)
+  DIPLOMAADD: Diploma (add)
   CERTIFICATIONS: Certifications
+  CERTIFICATIONSLIST: Certifications (list)
+  CERTIFICATIONADD: Certifications (add)
+  WEBPORTFOLIOLIST: Web Portfolio (list)
+  WEBPORTFOLIOADD: Web Portfolio (add)
   ADMIN: Administration
   LOGIN: Login
   LOGOUT: Logout

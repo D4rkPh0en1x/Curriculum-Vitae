@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Hillrange\CKEditor\Form\CKEditorType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use App\Entity\Jobs;
 
 class JobsForm extends AbstractType
@@ -23,6 +23,7 @@ class JobsForm extends AbstractType
         ))
         ->add('jobend', DateType::class, array(
             'widget' => 'single_text',
+            'required' => false,
         ))
         ->add('employedas', TextType::class)
         ->add('description', CKEditorType::class, array(

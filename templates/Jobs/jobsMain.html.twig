@@ -17,6 +17,9 @@
         <div class="card">
             <div class="card-header">
         		<h5 class="card-title text-center">{{ row.label }}</h5>
+        		{% if is_granted('ROLE_ADMIN') %}
+        		<a href="{{ path('jobedit', { 'jobid': row.getID() }) }}" class="btn btn-default btn-sm"><i class="fas fa-edit"></i></a>
+      			{% endif %}
       		</div>
     		<div class="card-body">
 

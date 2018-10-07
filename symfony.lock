@@ -110,15 +110,6 @@
             "ref": "fb9152ee3538f968d9e0f2c763ecbe4ab63eff26"
         }
     },
-    "hillrange/ckeditor": {
-        "version": "0.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "0.1",
-            "ref": "d3ce607b0f85f98d6cab2b6edff2cd6a47e3f577"
-        }
-    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -350,9 +341,6 @@
             "ref": "3db029c03e452b4a23f7fc45cec7c922c2247eb8"
         }
     },
-    "symfony/templating": {
-        "version": "v4.0.9"
-    },
     "symfony/translation": {
         "version": "3.3",
         "recipe": {
@@ -388,15 +376,6 @@
     },
     "symfony/yaml": {
         "version": "v4.0.9"
-    },
-    "twig/extensions": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "4851df0afc426b8f07204379d21fca25b6df5d68"
-        }
     },
     "twig/twig": {
         "version": "v2.4.8"

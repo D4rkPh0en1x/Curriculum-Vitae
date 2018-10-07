@@ -30,6 +30,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use App\Entity\Jobs;
 use App\Form\JobsForm;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 
 class JobsController extends Controller
@@ -109,5 +110,87 @@ class JobsController extends Controller
                 ['form' => $form->createView()]));
     }
 
+    
+    
+    /**
+     * @param Request  $request
+     * @param Jobs $jobid
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/jobs/edit/{jobid}", name="jobedit")
+     */
+    public function jobsEdit(Request $request, Jobs $jobid, FormFactoryInterface $factory, ObjectManager $manager,  UrlGeneratorInterface $urlGenerator )
+    {
+        
+        $editJobId = $jobid->getID();
+        
+        $this->get('form.factory')->createNamed($editJobId);
+        
+        
+        
+        $builder = $factory->createBuilder(FormType::class, $jobid);
+        $builder->add(
+            'label',
+            TextType::class,
+            [
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'FORM.JOBS.PLACEHOLDER.LABEL',
+                    'class' => 'modifylabel'
+                    
+                ]
+            ]
+            )
+            
+            
+            ->add('location', TextType::class)
+            ->add('country', TextType::class)
+            ->add('jobstart', DateType::class, array(
+                'widget' => 'single_text',
+            ))
+            ->add('jobend', DateType::class, array(
+                'widget' => 'single_text',
+                'required' => false,
+            ))
+            ->add('employedas', TextType::class)
+            ->add('description', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                    'filebrowserBrowseRoute' => 'elfinder',
+                    'filebrowserBrowseRouteParameters' => array(
+                        'instance' => 'default',
+                        'homeFolder' => '')
+                )))
+            
+                       
+            ->add('save', SubmitType::class, array('label' => 'Modify the job'));
+            
+            $formeditjob = $builder->getForm();
+            $formeditjob->handleRequest($request);
+            
+            
+            
+            
+            if ($formeditjob->isSubmitted() && $formeditjob->isValid()) {
+                
+
+                
+                $manager->persist($jobid);
+                $manager->flush();
+                return new RedirectResponse($urlGenerator->generate('jobs_main'));
+            }
+            
+            return $this->render('Jobs/jobEdit.html.twig', [
+                'jobedit' => $formeditjob->createView(),
+                'routeAttr' => ['jobid' => $jobid ->getId()
+                ],
+                'currentjob' => $jobid ->getId()
+            ]);
+    }
+    
+    
+    
+    
+    
 
 }
